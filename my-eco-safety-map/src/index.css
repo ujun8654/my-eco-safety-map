@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 전역 기본 스타일 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+               'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
+               'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+}
+
+/* Leaflet 지도 관련 스타일 */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* 접근성 관련 스타일 */
+.accessibility-high-contrast {
+  filter: contrast(150%) brightness(1.2);
+}
+
+.accessibility-high-contrast button {
+  border: 2px solid currentColor !important;
+}
+
+.accessibility-large-text {
+  font-size: 1.1rem;
+}
+
+.accessibility-large-text button {
+  padding: 0.8rem 1.2rem !important;
+  font-size: 1.1rem !important;
+}
+
+.accessibility-large-text .text-sm {
+  font-size: 1rem !important;
+}
+
+.accessibility-large-text .text-xs {
+  font-size: 0.9rem !important;
+}
+
+.accessibility-reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* 스크린 리더를 위한 숨김 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 커스텀 그라디언트 */
+.gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+}
+
+/* 로딩 애니메이션 */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 부드러운 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 포커스 스타일 개선 (키보드 네비게이션) */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* 터치 디바이스용 최소 터치 영역 보장 */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  input[type="button"],
+  input[type="submit"],
+  a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

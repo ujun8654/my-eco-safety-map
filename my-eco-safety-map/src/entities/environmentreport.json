@@ -1,0 +1,76 @@
+{
+  "name": "EnvironmentReport",
+  "type": "object",
+  "properties": {
+    "location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "description": "제보 위치 정보"
+    },
+    "report_type": {
+      "type": "string",
+      "enum": [
+        "pollution",
+        "facility_damage",
+        "noise",
+        "comfort",
+        "safety"
+      ],
+      "description": "제보 유형"
+    },
+    "title": {
+      "type": "string",
+      "description": "제보 제목"
+    },
+    "description": {
+      "type": "string",
+      "description": "상세 설명"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "태그 목록"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "첨부 이미지 URL"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "description": "심각도"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "resolved"
+      ],
+      "default": "pending",
+      "description": "처리 상태"
+    }
+  },
+  "required": [
+    "location",
+    "report_type",
+    "title"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "preferred_route": {
+      "type": "string",
+      "enum": ["default", "elderly", "stroller", "pet", "exercise"],
+      "default": "default",
+      "description": "선호하는 경로 유형"
+    },
+    "age_group": {
+      "type": "string",
+      "enum": ["청소년", "청년", "중년", "시니어"],
+      "default": "청년",
+      "description": "연령대"
+    },
+    "accessibility_settings": {
+      "type": "object",
+      "properties": {
+        "voice_guidance": {
+          "type": "boolean",
+          "default": false,
+          "description": "음성 안내 활성화"
+        },
+        "high_contrast": {
+          "type": "boolean", 
+          "default": false,
+          "description": "고대비 모드"
+        },
+        "large_text": {
+          "type": "boolean",
+          "default": false,
+          "description": "큰 글자 모드"
+        },
+        "font_size": {
+          "type": "number",
+          "default": 16,
+          "description": "기본 글자 크기"
+        },
+        "motion_reduced": {
+          "type": "boolean",
+          "default": false,
+          "description": "애니메이션 감소"
+        }
+      },
+      "description": "접근성 관련 설정"
+    },
+    "notification_preferences": {
+      "type": "object",
+      "properties": {
+        "air_quality_alerts": {
+          "type": "boolean",
+          "default": true,
+          "description": "대기질 경고 알림"
+        },
+        "weather_alerts": {
+          "type": "boolean",
+          "default": true,
+          "description": "날씨 경고 알림"
+        },
+        "safety_alerts": {
+          "type": "boolean",
+          "default": true,
+          "description": "안전 위험 알림"
+        },
+        "community_updates": {
+          "type": "boolean",
+          "default": false,
+          "description": "커뮤니티 업데이트 알림"
+        }
+      },
+      "description": "알림 설정"
+    },
+    "activity_stats": {
+      "type": "object",
+      "properties": {
+        "total_reports": {
+          "type": "number",
+          "default": 0,
+          "description": "총 제보 횟수"
+        },
+        "points": {
+          "type": "number",
+          "default": 0,
+          "description": "누적 포인트"
+        },
+        "badges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "획득한 뱃지 목록"
+        },
+        "join_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "가입일"
+        }
+      },
+      "description": "활동 통계"
+    }
+  },
+  "description": "사용자 정보 확장 스키마"
+}

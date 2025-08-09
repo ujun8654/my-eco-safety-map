@@ -1,0 +1,84 @@
+{
+  "name": "Route",
+  "type": "object",
+  "properties": {
+    "start_location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "end_location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "route_type": {
+      "type": "string",
+      "enum": [
+        "default",
+        "elderly",
+        "stroller",
+        "pet",
+        "exercise"
+      ],
+      "default": "default",
+      "description": "경로 유형"
+    },
+    "waypoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "instruction": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "경로 안내점"
+    },
+    "distance": {
+      "type": "number",
+      "description": "거리 (미터)"
+    },
+    "duration": {
+      "type": "number",
+      "description": "예상 소요시간 (분)"
+    },
+    "safety_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "안전 특징"
+    }
+  },
+  "required": [
+    "start_location",
+    "end_location",
+    "route_type"
+  ]
+}
